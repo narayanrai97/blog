@@ -1,0 +1,20 @@
+<div class="container">
+<% @posts.each do |post| %>
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <%= post.title %>
+                </h4>
+            </div>
+            <div class="panel-body"><%= post.body %></div>
+        </div>
+
+        <%= link_to "Read", post %>
+        <%= link_to "Delete", post_path(post), method: :delete, data: {confirm: 'Are you sure?'} %>
+    </div>
+<% end %><br>
+</div>
+
+<%= link_to "<button>New Post</button>".html_safe, new_post_path %><br>
+
